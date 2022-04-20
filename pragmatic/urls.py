@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 from articleapp.views import ArticleListView
-from pragmatic import settings
+from pragmatic.settings import base
 
 urlpatterns = [
     path('', ArticleListView.as_view(), name='home'),
@@ -29,4 +29,4 @@ urlpatterns = [
     path('comments/', include('commentapp.urls')),
     path('projects/', include('projectapp.urls')),
     path('subscribe/', include('subscribeapp.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(base.MEDIA_URL, document_root=base.MEDIA_ROOT)
